@@ -76,7 +76,7 @@ function generatePassword() {
     }
     finalPassword = randomPassword.join("")
     console.log(finalPassword)
-    passwordText.value = finalPassword
+    passwordText = finalPassword.value
   }
 }
 // Add event listener to generate button
