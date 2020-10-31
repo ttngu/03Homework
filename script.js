@@ -40,6 +40,9 @@ function generatePassword() {
       passwordInput.push(inputLowercase[i]);
     }
   }
+    else {
+      
+  }
 
   var characterUppercase = confirm("Use uppercase characters?");
   console.log(characterUppercase);
