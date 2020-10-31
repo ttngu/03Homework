@@ -1,5 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var inputLowercase = "abcdefghijklmnopqrstuvwxyz".split("");
+var inputUppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+var inputNumeric = "0123456789".split("");
+var inputSpecial = "!@#$%^&*".split("");
+var passwordInput = [];
 
 // Write password to the #password input
 function writePassword() {
@@ -23,28 +28,38 @@ function generatePassword() {
 
   // Secondary Prompts - Character types
   var characterLowercase = confirm("Use lowercase characters?")
-    // I don't think this is correct...
-    var inputLowercase = "abcdefghijklmnopqrstuvwxyz".split("");
+    // I don't think this is correct!!
+    var lowercase = lowercase();
     console.log(characterLowercase);
     console.log(inputLowercase)
+
+    passwordInput.push(inputLowercase)
+    console.log(passwordInput)
+    
+    function lowercase(){
+      if (characterLowercase === true){
+        // randomly select lowercase, but how?
+
+
+    }
     
   var characterUppercase = confirm("Use uppercase characters?")
-  // var inputUppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  
     console.log(characterUppercase);
     
   var characterNumeric = confirm("Use numeric characters?")
-    // var inputNumeric = "0123456789".split("");
+    
     console.log(characterNumeric);
 
   var characterSpecial = confirm("Use special characters?")
-    // var inputSpecial = "!@#$%^&*".split("");
+  
     console.log(characterSpecial);
 
 
   // For Loop to choose password characters 
   // Pretty sure this is wrong and doesn't work
-  for(var i = 0; i <= passwordLength; i++) {
-    passwordText = password + inputLowercase.charAt(Math.floor(Math.random() * Math.floor(inputLowercase.length - 1)))
+    // for(var i = 0; i <= passwordLength; i++) {
+    //   passwordText = password + includeLowercase.charAt(Math.floor(Math.random() * Math.floor(includeLowercase.length - 1)))
   }
 
 
