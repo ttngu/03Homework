@@ -13,7 +13,6 @@ var finalPassword = "";
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
 // First prompt - Length of password
@@ -36,35 +35,39 @@ function generatePassword() {
   // Secondary Prompts - Character types
   var characterLowercase = confirm("Use lowercase characters?");
   console.log(characterLowercase);
-
   if (characterLowercase === true) {
     for (var i = 0; i < inputLowercase.length; i++){
       passwordInput.push(inputLowercase[i]);
     }
   }
 
-    var characterUppercase = confirm("Use uppercase characters?");
+  var characterUppercase = confirm("Use uppercase characters?");
+  console.log(characterUppercase);
     if (characterUppercase === true) {
       for (var i = 0; i < inputUppercase.length; i++){
         passwordInput.push(inputUppercase[i]);
     }
 
-    var characterNumeric = confirm("Use numeric characters?");
+  var characterNumeric = confirm("Use numeric characters?");
+  console.log(characterNumeric);
     if (characterNumeric === true) {
       for (var i = 0; i < inputNumeric.length; i++){
         passwordInput.push(inputNumeric[i]);
       }
     }
 
-    var characterSpecial = confirm("Use special characters?");
+  var characterSpecial = confirm("Use special characters?");
+  console.log(characterSpecial);
     if (characterSpecial === true) {
       for (var i = 0; i < inputSpecial.length; i++){
         passwordInput.push(inputSpecial[i]);
       }
     }
-    getRandomCharacters()
+    
+  getRandomCharacters()
   }
 
+  // Get random characters, put into and array, and output into a final password
   function getRandomCharacters() {
     for (var i = 0; i < passwordLength; i++) {
       var steve = Math.floor(Math.random() * passwordInput.length)
@@ -75,7 +78,7 @@ function generatePassword() {
     console.log(finalPassword)
     passwordText.value = finalPassword
   }
-
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
