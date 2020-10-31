@@ -1,33 +1,9 @@
-// Assignment Code
+// Define Variables
 var generateBtn = document.querySelector("#generate");
 var inputLowercase = [  "a",  "b",  "c",  "d",  "e",  "f",  "g",  "h",  "i",  "j",  "k",  "l",  "m",  "n",  "o",  "p",  "q",  "r",  "s",  "t",  "u",  "v",  "w",  "x",  "y",  "z",];
 var inputUppercase = [  "A",  "B",  "C",  "D",  "E", "F",  "G",  "H",  "I",  "J",  "K",  "L",  "M",  "N",  "O",  "P",  "Q",  "R",  "S",  "T",  "U",  "V",  "W",  "X",  "Y",  "Z",];
 var inputNumeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var inputSpecial = [
-  "@",
-  "%",
-  "+",
-  "\\",
-  "/",
-  "'",
-  "!",
-  "#",
-  "$",
-  "^",
-  "?",
-  ":",
-  ",",
-  ")",
-  "(",
-  "}",
-  "{",
-  "]",
-  "[",
-  "~",
-  "-",
-  "_",
-  ".",
-];
+var inputSpecial = ["@","%","+","\\","/","'","!","#","$","^","?",":",",",")","(","}","{","]","[","~","-","_",".",];
 var passwordInput = [];
 var randomPassword = [];
 var passwordLength = 0;
@@ -59,15 +35,11 @@ function generatePassword() {
 
   // Secondary Prompts - Character types
   var characterLowercase = confirm("Use lowercase characters?");
-  // I don't think this is correct!!
-  // var lowercase = lowercase();
   console.log(characterLowercase);
 
   if (characterLowercase === true) {
     for (var i = 0; i < inputLowercase.length; i++){
       passwordInput.push(inputLowercase[i]);
-      
-
     }
   }
 
@@ -75,17 +47,12 @@ function generatePassword() {
     if (characterUppercase === true) {
       for (var i = 0; i < inputUppercase.length; i++){
         passwordInput.push(inputUppercase[i]);
-        
-  
-      }
     }
 
     var characterNumeric = confirm("Use numeric characters?");
     if (characterNumeric === true) {
       for (var i = 0; i < inputNumeric.length; i++){
         passwordInput.push(inputNumeric[i]);
-        
-  
       }
     }
 
@@ -93,17 +60,9 @@ function generatePassword() {
     if (characterSpecial === true) {
       for (var i = 0; i < inputSpecial.length; i++){
         passwordInput.push(inputSpecial[i]);
-        
-  
       }
     }
     getRandomCharacters()
-
-
-    // For Loop to choose password characters
-    // Pretty sure this is wrong and doesn't work
-    // for(var i = 0; i <= passwordLength; i++) {
-    //   passwordText = password + includeLowercase.charAt(Math.floor(Math.random() * Math.floor(includeLowercase.length - 1)))
   }
 
   function getRandomCharacters() {
