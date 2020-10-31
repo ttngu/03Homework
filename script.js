@@ -1,10 +1,37 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var inputLowercase = "abcdefghijklmnopqrstuvwxyz".split("");
-var inputUppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-var inputNumeric = "0123456789".split("");
-var inputSpecial = "!@#$%^&*".split("");
+var inputLowercase = [  "a",  "b",  "c",  "d",  "e",  "f",  "g",  "h",  "i",  "j",  "k",  "l",  "m",  "n",  "o",  "p",  "q",  "r",  "s",  "t",  "u",  "v",  "w",  "x",  "y",  "z",];
+var inputUppercase = [  "A",  "B",  "C",  "D",  "E", "F",  "G",  "H",  "I",  "J",  "K",  "L",  "M",  "N",  "O",  "P",  "Q",  "R",  "S",  "T",  "U",  "V",  "W",  "X",  "Y",  "Z",];
+var inputNumeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var inputSpecial = [
+  "@",
+  "%",
+  "+",
+  "\\",
+  "/",
+  "'",
+  "!",
+  "#",
+  "$",
+  "^",
+  "?",
+  ":",
+  ",",
+  ")",
+  "(",
+  "}",
+  "{",
+  "]",
+  "[",
+  "~",
+  "-",
+  "_",
+  ".",
+];
 var passwordInput = [];
+var randomPassword = [];
+var passwordLength = 0;
+var finalPassword = "";
 
 // Write password to the #password input
 function writePassword() {
@@ -15,55 +42,81 @@ function writePassword() {
 }
 // First prompt - Length of password
 function generatePassword() {
-  var passwordLength = parseInt (prompt("What would you like the length of the password to be? (Must be between 8 and 128)"))
-  console.log(passwordLength)
-    if (isNaN(passwordLength) === true) {
-      alert ("Password must be a number")
-      generatePassword()
-    }
-    if (passwordLength < 8) {
-      alert ("Must be between 8-128 characters")
-      generatePassword()
-    }
+  passwordLength = parseInt(
+    prompt(
+      "What would you like the length of the password to be? (Must be between 8 and 128)"
+    )
+  );
+  console.log(passwordLength);
+  if (isNaN(passwordLength) === true) {
+    alert("Password must be a number");
+    generatePassword();
+  }
+  if (passwordLength < 8) {
+    alert("Must be between 8-128 characters");
+    generatePassword();
+  }
 
   // Secondary Prompts - Character types
-  var characterLowercase = confirm("Use lowercase characters?")
-    // I don't think this is correct!!
-    var lowercase = lowercase();
-    console.log(characterLowercase);
-    console.log(inputLowercase)
+  var characterLowercase = confirm("Use lowercase characters?");
+  // I don't think this is correct!!
+  // var lowercase = lowercase();
+  console.log(characterLowercase);
 
-    passwordInput.push(inputLowercase)
-    console.log(passwordInput)
-    
-    function lowercase(){
-      if (characterLowercase === true){
-        // randomly select lowercase, but how?
-
+  if (characterLowercase === true) {
+    for (var i = 0; i < inputLowercase.length; i++){
+      passwordInput.push(inputLowercase[i]);
+      
 
     }
-    
-  var characterUppercase = confirm("Use uppercase characters?")
+  }
+
+    var characterUppercase = confirm("Use uppercase characters?");
+    if (characterUppercase === true) {
+      for (var i = 0; i < inputUppercase.length; i++){
+        passwordInput.push(inputUppercase[i]);
+        
   
-    console.log(characterUppercase);
-    
-  var characterNumeric = confirm("Use numeric characters?")
-    
-    console.log(characterNumeric);
+      }
+    }
 
-  var characterSpecial = confirm("Use special characters?")
+    var characterNumeric = confirm("Use numeric characters?");
+    if (characterNumeric === true) {
+      for (var i = 0; i < inputNumeric.length; i++){
+        passwordInput.push(inputNumeric[i]);
+        
   
-    console.log(characterSpecial);
+      }
+    }
+
+    var characterSpecial = confirm("Use special characters?");
+    if (characterSpecial === true) {
+      for (var i = 0; i < inputSpecial.length; i++){
+        passwordInput.push(inputSpecial[i]);
+        
+  
+      }
+    }
+    getRandomCharacters()
 
 
-  // For Loop to choose password characters 
-  // Pretty sure this is wrong and doesn't work
+    // For Loop to choose password characters
+    // Pretty sure this is wrong and doesn't work
     // for(var i = 0; i <= passwordLength; i++) {
     //   passwordText = password + includeLowercase.charAt(Math.floor(Math.random() * Math.floor(includeLowercase.length - 1)))
   }
 
+  function getRandomCharacters() {
+    for (var i = 0; i < passwordLength; i++) {
+      var steve = Math.floor(Math.random() * passwordInput.length)
+      console.log(steve)
+    randomPassword.push(passwordInput[steve])
+    }
+    finalPassword = randomPassword.join("")
+    console.log(finalPassword)
+    passwordText.value = finalPassword
+  }
 
-}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
@@ -82,4 +135,3 @@ generateBtn.addEventListener("click", writePassword);
 // THEN a password is generated that matches the selected criteria
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
-
