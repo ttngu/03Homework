@@ -1,11 +1,15 @@
 // Define Variables
 var generateBtn = document.querySelector("#generate");
+
+  // Characters
 var inputLowercase = [  "a",  "b",  "c",  "d",  "e",  "f",  "g",  "h",  "i",  "j",  "k",  "l",  "m",  "n",  "o",  "p",  "q",  "r",  "s",  "t",  "u",  "v",  "w",  "x",  "y",  "z",];
 var inputUppercase = [  "A",  "B",  "C",  "D",  "E", "F",  "G",  "H",  "I",  "J",  "K",  "L",  "M",  "N",  "O",  "P",  "Q",  "R",  "S",  "T",  "U",  "V",  "W",  "X",  "Y",  "Z",];
 var inputNumeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var inputSpecial = ["@","%","+","\\","/","'","!","#","$","^","?",":",",",")","(","}","{","]","[","~","-","_",".",];
+
+  //Empty Arrays
 var passwordInput = [];
-var randomPassword = [];
+var randomCharacters = [];
 var passwordLength = 0;
 var finalPassword = "";
 
@@ -40,15 +44,13 @@ function generatePassword() {
       passwordInput.push(inputLowercase[i]);
     }
   }
-    else {
-      
-  }
 
   var characterUppercase = confirm("Use uppercase characters?");
   console.log(characterUppercase);
     if (characterUppercase === true) {
       for (var i = 0; i < inputUppercase.length; i++){
         passwordInput.push(inputUppercase[i]);
+      }
     }
 
   var characterNumeric = confirm("Use numeric characters?");
@@ -68,19 +70,27 @@ function generatePassword() {
     }
     
   getRandomCharacters()
-  }
+  
 
   // Get random characters, put into and array, and output into a final password
   function getRandomCharacters() {
     for (var i = 0; i < passwordLength; i++) {
-      var steve = Math.floor(Math.random() * passwordInput.length)
-      console.log(steve)
-    randomPassword.push(passwordInput[steve])
+      var passwordGenerated = Math.floor(Math.random() * passwordInput.length)
+      console.log(passwordGenerated)
+    randomCharacters.push(passwordInput[passwordGenerated])
     }
-    finalPassword = randomPassword.join("")
+    finalPassword = randomCharacters.join("")
     console.log(finalPassword)
     passwordText = finalPassword.value
+
   }
+
+  function UserInput(finalPassword) {
+    document.getElementById("password").textContent = passwordText;
+  }
+
+  // Function to reset array to "" when Generate Password is clicked again
+
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
