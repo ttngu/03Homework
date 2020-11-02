@@ -21,19 +21,26 @@ function writePassword() {
 }
 // First prompt - Length of password
 function generatePassword() {
+  
+  // Reset array to "" when Generate Password is clicked again
+  passwordInput.length = 0;
+  randomCharacters.length = 0;
+  passwordLength.length = 0;
+  finalPassword = "";
+
   passwordLength = parseInt(prompt(
     "What would you like the length of the password to be? (Must be between 8 and 128)")
   );
   // If the input is not a number, alert that the password must be a number
   console.log(passwordLength);
   if (isNaN(passwordLength) === true) {
-    alert("Password must be a number");
-    generatePassword();
+    confirm("Password must be a number. Please try again.");
+    return;
   }
   // If the input is less than 8, alert that the minimum requirement is 8 characters
   if (passwordLength < 8) {
-    alert("Must be between 8-128 characters");
-    generatePassword();
+    confirm("Must be between 8-128 characters");
+    return;
   }
 
   // Secondary Prompts - Character types
@@ -84,10 +91,11 @@ function generatePassword() {
     finalPassword = randomCharacters.join("")
     console.log(finalPassword)
     
-    alert("Your generated password: " + finalPassword);
-    // alert (finalPassword);
-    // Output password to display box
-    // passwordText = finalPassword.value
+    // alert("Your generated password: " + finalPassword);
+   
+    
+    
+    // passwordText.value = finalPassword.value
     // function finalPassword() {
     //   alert("Your generated password: " + finalPassword);
     // }
@@ -97,11 +105,9 @@ function generatePassword() {
   // function writePassword() {
   //   document.getElementById("password").textContent = passwordText.
   // }
-  // Reset array to "" when Generate Password is clicked again
-  passwordInput.length = 0;
-  randomCharacters.length = 0;
-  passwordLength.length = 0;
-  finalPassword = "";
+
+  // Output password to display box
+  return finalPassword;
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
