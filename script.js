@@ -32,13 +32,13 @@ function generatePassword() {
   passwordLength = parseInt(prompt(
     "What would you like the length of the password to be? (Must be between 8 and 128)")
   );
-  // If the input is not a number, alert that the password must be a number
+    // If the input is not a number, alert that the password must be a number
   console.log(passwordLength);
     if (isNaN(passwordLength) === true) {
       confirm("Password must be a number. Please try again.");
       return;
     }
-  // If the input is less than 8, alert that the minimum requirement is 8 characters
+    // If the input is less than 8, alert that the minimum requirement is 8 characters
     if (passwordLength < 8) {
       confirm("Must be between 8-128 characters");
       return;
