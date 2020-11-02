@@ -72,10 +72,13 @@ function generatePassword() {
         passwordInput.push(inputSpecial[i]);
       }
     }
-    
   getRandomCharacters()
   
-
+  // Alert to try again if no character choices were selected
+    if ((characterLowercase === false) && (characterUppercase === false) && (characterNumeric === false) && (characterSpecial === false)) {
+      alert ("At least one character type must be selected. Please try again.")
+      return;
+    }
   // Get random characters, input characters to an array
   function getRandomCharacters() {
     for (var i = 0; i < passwordLength; i++) {
