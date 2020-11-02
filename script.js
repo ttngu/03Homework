@@ -45,7 +45,7 @@ function generatePassword() {
 
   // Secondary Prompts - Character types
     // Lowercase characters
-  var characterLowercase = confirm("Use lowercase characters? (Press Cancel for 'No'");
+  var characterLowercase = confirm("Use lowercase characters? (Press Cancel for 'No')");
   console.log(characterLowercase);
   if (characterLowercase === true) {
     for (var i = 0; i < inputLowercase.length; i++){
@@ -53,7 +53,7 @@ function generatePassword() {
     }
   }
     // Uppercase characters
-  var characterUppercase = confirm("Use uppercase characters? (Press Cancel for 'No'");
+  var characterUppercase = confirm("Use uppercase characters? (Press Cancel for 'No')");
   console.log(characterUppercase);
     if (characterUppercase === true) {
       for (var i = 0; i < inputUppercase.length; i++){
@@ -61,7 +61,7 @@ function generatePassword() {
       }
     }
     // Numeric characters
-  var characterNumeric = confirm("Use numeric characters? (Press Cancel for 'No'");
+  var characterNumeric = confirm("Use numeric characters? (Press Cancel for 'No')");
   console.log(characterNumeric);
     if (characterNumeric === true) {
       for (var i = 0; i < inputNumeric.length; i++){
@@ -69,7 +69,7 @@ function generatePassword() {
       }
     }
     // Special characters
-  var characterSpecial = confirm("Use special characters? (Press Cancel for 'No'");
+  var characterSpecial = confirm("Use special characters? (Press Cancel for 'No')");
   console.log(characterSpecial);
     if (characterSpecial === true) {
       for (var i = 0; i < inputSpecial.length; i++){
