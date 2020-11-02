@@ -1,13 +1,13 @@
 // Define Variables
 var generateBtn = document.querySelector("#generate");
 
-  // Characters
+// Characters
 var inputLowercase = [  "a",  "b",  "c",  "d",  "e",  "f",  "g",  "h",  "i",  "j",  "k",  "l",  "m",  "n",  "o",  "p",  "q",  "r",  "s",  "t",  "u",  "v",  "w",  "x",  "y",  "z",];
 var inputUppercase = [  "A",  "B",  "C",  "D",  "E", "F",  "G",  "H",  "I",  "J",  "K",  "L",  "M",  "N",  "O",  "P",  "Q",  "R",  "S",  "T",  "U",  "V",  "W",  "X",  "Y",  "Z",];
 var inputNumeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var inputSpecial = ["@","%","+","\\","/","'","!","#","$","^","?",":",",",")","(","}","{","]","[","~","-","_",".",];
 
-  //Empty Arrays
+//Empty Arrays
 var passwordInput = [];
 var randomCharacters = [];
 var passwordLength = 0;
@@ -33,7 +33,6 @@ function generatePassword() {
     "What would you like the length of the password to be? (Must be between 8 and 128)")
   );
     // If the input is not a number, alert that the password must be a number
-  console.log(passwordLength);
     if (isNaN(passwordLength) === true) {
       confirm("Password must be a number. Please try again.");
       return;
@@ -45,33 +44,29 @@ function generatePassword() {
     }
 
   // Secondary Prompts - Character types
-    // Lowercase characters
+  // Lowercase characters
   var characterLowercase = confirm("Use lowercase characters? (Press Cancel for 'No')");
-  console.log(characterLowercase);
     if (characterLowercase === true) {
       for (var i = 0; i < inputLowercase.length; i++){
         passwordInput.push(inputLowercase[i]);
       }
     }
-    // Uppercase characters
+  // Uppercase characters
   var characterUppercase = confirm("Use uppercase characters? (Press Cancel for 'No')");
-  console.log(characterUppercase);
     if (characterUppercase === true) {
       for (var i = 0; i < inputUppercase.length; i++){
         passwordInput.push(inputUppercase[i]);
       }
     }
-    // Numeric characters
+  // Numeric characters
   var characterNumeric = confirm("Use numeric characters? (Press Cancel for 'No')");
-  console.log(characterNumeric);
     if (characterNumeric === true) {
       for (var i = 0; i < inputNumeric.length; i++){
         passwordInput.push(inputNumeric[i]);
       }
     }
-    // Special characters
+  // Special characters
   var characterSpecial = confirm("Use special characters? (Press Cancel for 'No')");
-  console.log(characterSpecial);
     if (characterSpecial === true) {
       for (var i = 0; i < inputSpecial.length; i++){
         passwordInput.push(inputSpecial[i]);
@@ -85,12 +80,10 @@ function generatePassword() {
   function getRandomCharacters() {
     for (var i = 0; i < passwordLength; i++) {
       var charactersGenerated = Math.floor(Math.random() * passwordInput.length)
-      console.log(charactersGenerated)
       randomCharacters.push(passwordInput[charactersGenerated])
     }
     // Join characters into the final password
     finalPassword = randomCharacters.join("")
-    console.log(finalPassword)
   }  
   
   // Output password to display box
