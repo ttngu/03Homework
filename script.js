@@ -22,20 +22,22 @@ function writePassword() {
 // First prompt - Length of password
 function generatePassword() {
   passwordLength = parseInt(prompt(
-      "What would you like the length of the password to be? (Must be between 8 and 128)"
-    )
+    "What would you like the length of the password to be? (Must be between 8 and 128)")
   );
+  // If the input is not a number, alert that the password must be a number
   console.log(passwordLength);
   if (isNaN(passwordLength) === true) {
     alert("Password must be a number");
     generatePassword();
   }
+  // If the input is less than 8, alert that the minimum requirement is 8 characters
   if (passwordLength < 8) {
     alert("Must be between 8-128 characters");
     generatePassword();
   }
 
   // Secondary Prompts - Character types
+    // Lowercase characters
   var characterLowercase = confirm("Use lowercase characters?");
   console.log(characterLowercase);
   if (characterLowercase === true) {
@@ -43,7 +45,7 @@ function generatePassword() {
       passwordInput.push(inputLowercase[i]);
     }
   }
-
+    // Uppercase characters
   var characterUppercase = confirm("Use uppercase characters?");
   console.log(characterUppercase);
     if (characterUppercase === true) {
@@ -51,7 +53,7 @@ function generatePassword() {
         passwordInput.push(inputUppercase[i]);
       }
     }
-
+    // Numeric characters
   var characterNumeric = confirm("Use numeric characters?");
   console.log(characterNumeric);
     if (characterNumeric === true) {
@@ -59,7 +61,7 @@ function generatePassword() {
         passwordInput.push(inputNumeric[i]);
       }
     }
-
+    // Special characters
   var characterSpecial = confirm("Use special characters?");
   console.log(characterSpecial);
     if (characterSpecial === true) {
