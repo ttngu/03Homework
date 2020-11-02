@@ -19,7 +19,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
-// First prompt - Length of password
+// Function to generate new password
 function generatePassword() {
   
   // Reset array to "" when Generate Password is clicked again
@@ -27,31 +27,32 @@ function generatePassword() {
   randomCharacters.length = 0;
   passwordLength.length = 0;
   finalPassword = "";
-
+  
+  // First prompt - Length of password
   passwordLength = parseInt(prompt(
     "What would you like the length of the password to be? (Must be between 8 and 128)")
   );
   // If the input is not a number, alert that the password must be a number
   console.log(passwordLength);
-  if (isNaN(passwordLength) === true) {
-    confirm("Password must be a number. Please try again.");
-    return;
-  }
+    if (isNaN(passwordLength) === true) {
+      confirm("Password must be a number. Please try again.");
+      return;
+    }
   // If the input is less than 8, alert that the minimum requirement is 8 characters
-  if (passwordLength < 8) {
-    confirm("Must be between 8-128 characters");
-    return;
-  }
+    if (passwordLength < 8) {
+      confirm("Must be between 8-128 characters");
+      return;
+    }
 
   // Secondary Prompts - Character types
     // Lowercase characters
   var characterLowercase = confirm("Use lowercase characters? (Press Cancel for 'No')");
   console.log(characterLowercase);
-  if (characterLowercase === true) {
-    for (var i = 0; i < inputLowercase.length; i++){
-      passwordInput.push(inputLowercase[i]);
+    if (characterLowercase === true) {
+      for (var i = 0; i < inputLowercase.length; i++){
+        passwordInput.push(inputLowercase[i]);
+      }
     }
-  }
     // Uppercase characters
   var characterUppercase = confirm("Use uppercase characters? (Press Cancel for 'No')");
   console.log(characterUppercase);
@@ -90,22 +91,8 @@ function generatePassword() {
     // Join characters into the final password
     finalPassword = randomCharacters.join("")
     console.log(finalPassword)
-    
-    // alert("Your generated password: " + finalPassword);
-   
-    
-    
-    // passwordText.value = finalPassword.value
-    // function finalPassword() {
-    //   alert("Your generated password: " + finalPassword);
-    // }
-    // }
-  }
+  }  
   
-  // function writePassword() {
-  //   document.getElementById("password").textContent = passwordText.
-  // }
-
   // Output password to display box
   return finalPassword;
 }
