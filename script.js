@@ -21,9 +21,7 @@ function writePassword() {
 }
 // First prompt - Length of password
 function generatePassword() {
-  // Set arrays back to
-  passwordLength = parseInt(
-    prompt(
+  passwordLength = parseInt(prompt(
       "What would you like the length of the password to be? (Must be between 8 and 128)"
     )
   );
@@ -73,31 +71,35 @@ function generatePassword() {
   getRandomCharacters()
   
 
-  // Get random characters, put into and array, and output into a final password
+  // Get random characters, input characters to an array
   function getRandomCharacters() {
     for (var i = 0; i < passwordLength; i++) {
       var charactersGenerated = Math.floor(Math.random() * passwordInput.length)
       console.log(charactersGenerated)
       randomCharacters.push(passwordInput[charactersGenerated])
     }
-
+    // Join characters into the final password
     finalPassword = randomCharacters.join("")
     console.log(finalPassword)
-    // // passwordText = finalPassword.value
     
-    function UserInput(finalPassword) {
-      document.getElementById("password").textContent = passwordText.value;
-    }
+    alert("Your generated password: " + finalPassword);
+    // alert (finalPassword);
+    // Output password to display box
+    // passwordText = finalPassword.value
+    // function finalPassword() {
+    //   alert("Your generated password: " + finalPassword);
+    // }
+    // }
   }
-
-  // Clear arrays
+  
+  // function writePassword() {
+  //   document.getElementById("password").textContent = passwordText.
+  // }
+  // Reset array to "" when Generate Password is clicked again
   passwordInput.length = 0;
   randomCharacters.length = 0;
   passwordLength.length = 0;
   finalPassword = "";
-
-  // Function to reset array to "" when Generate Password is clicked again
-
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
