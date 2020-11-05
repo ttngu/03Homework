@@ -12,4 +12,4 @@ https://ttngu.github.io/03Homework/
 **GitHub IO Link**
 https://github.com/ttngu/03Homework
 
-![Alt Text](https://imgur.com/zeODqJX)
+![Alt Text](https://github.com/ttngu/03Homework/blob/master/screenshot.gif?raw=true)
